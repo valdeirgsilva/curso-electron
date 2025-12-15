@@ -1,5 +1,6 @@
 import { contextBridge, ipcRenderer } from 'electron'
 import { ElectronAPI, electronAPI } from '@electron-toolkit/preload'
+import { NewCustomer } from '../shared/types/ipc'
 
 declare global {
   export interface Window {
@@ -20,7 +21,9 @@ const api = {
   fecthUsers: () => {
     // INVOKE -> enviar e receber
     return ipcRenderer.invoke('fetch-users')
-  }
+  },
+  addCustomer: (doc: NewCustomer): Promise<PouchDB.Core.Response | void> =>
+    ipcRenderer.invoke('add-customer', doc)
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to
