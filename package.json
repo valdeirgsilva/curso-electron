@@ -22,7 +22,11 @@
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
-    "@electron-toolkit/utils": "^4.0.0"
+    "@electron-toolkit/utils": "^4.0.0",
+    "@types/pouchdb": "^6.4.2",
+    "@types/pouchdb-browser": "^6.1.5",
+    "pouchdb": "^9.0.0",
+    "pouchdb-browser": "^9.0.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "^3.0.0",
