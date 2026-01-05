@@ -6,6 +6,12 @@ export function Home() {
     console.log(response)
   }
 
+  async function handleDeleteCustomer() {
+    const docId = '558df43f-44fc-4634-bb6e-59557cd3a565'
+    const response = await window.api.deleteCustomer(docId)
+    console.log(response)
+  }
+
   async function handleCustomerById() {
     const docId = '558df43f-44fc-4634-bb6e-59557cd3a565'
     const response = await window.api.fetchCustomerById(docId)
@@ -24,6 +30,9 @@ export function Home() {
       <br />
       <br />
       <button onClick={handleCustomerById}>BUSCAR USUÁRIO PELO ID</button>
+      <br />
+      <br />
+      <button onClick={handleDeleteCustomer}>DELETAR CLIENTE</button>
     </div>
   )
 }
