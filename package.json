@@ -23,6 +23,7 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^4.0.0",
+    "@tanstack/react-query": "^5.90.16",
     "@types/pouchdb": "^6.4.2",
     "@types/pouchdb-browser": "^6.1.5",
     "pouchdb": "^9.0.0",

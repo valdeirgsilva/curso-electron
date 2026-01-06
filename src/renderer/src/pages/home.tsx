@@ -1,38 +1,58 @@
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 
 export function Home() {
-  async function handleAdd() {
-    const response = await window.api.fetchAllCustomers()
-    console.log(response)
-  }
+  const queryClient = useQueryClient()
 
-  async function handleDeleteCustomer() {
-    const docId = '558df43f-44fc-4634-bb6e-59557cd3a565'
-    const response = await window.api.deleteCustomer(docId)
-    console.log(response)
-  }
+  // Buscar os clientes
+  const { data } = useQuery({
+    queryKey: ['customers'],
+    queryFn: async () => {
+      const response = await window.api.fetchAllCustomers()
+      console.log(response)
+      return response
+    }
+  })
 
-  async function handleCustomerById() {
-    const docId = '558df43f-44fc-4634-bb6e-59557cd3a565'
-    const response = await window.api.fetchCustomerById(docId)
-    console.log(response)
-  }
+  //   async function handleAdd() {
+
+  //   }
+
+  //   async function handleDeleteCustomer() {
+  //     const docId = '558df43f-44fc-4634-bb6e-59557cd3a565'
+  //     const response = await window.api.deleteCustomer(docId)
+  //     console.log(response)
+  //   }
+
+  //   async function handleCustomerById() {
+  //     const docId = '558df43f-44fc-4634-bb6e-59557cd3a565'
+  //     const response = await window.api.fetchCustomerById(docId)
+  //     console.log(response)
+  //   }
 
   return (
-    <div>
-      <h1>Página HOME!!!</h1>
-      <h3>TESTEEEEEEE!!!</h3>
-      <Link to="/create">Ir para a página Create</Link>
-      <br />
-      <br />
+    <div className="flex-1 flex flex-col py-12 text-white">
+      <div className="px-10">
+        <h1 className="text-white text-xl lg:text-3xl font-semibold mb-4">Todos clientes</h1>
+      </div>
 
-      <button onClick={handleAdd}>BUSCAR USUÁRIOS</button>
-      <br />
-      <br />
-      <button onClick={handleCustomerById}>BUSCAR USUÁRIO PELO ID</button>
-      <br />
-      <br />
-      <button onClick={handleDeleteCustomer}>DELETAR CLIENTE</button>
+      <section className="flex flex-col gap-6 w-full h-screen overflow-y-auto px-10 pb-[200px]">
+        {data?.map((customer) => (
+          <Link to="/" key={customer._id} className="bg-gray-800 px-4 py-3 rounded">
+            <p className="mb-2 font-semibold text-lg">{customer.name}</p>
+            <p>
+              <span className="font-semibold">Email: </span>
+              {customer.email}
+            </p>
+            {customer.phone && (
+              <p>
+                <span className="font-semibold">Telefone: </span>
+                {customer.phone}
+              </p>
+            )}
+          </Link>
+        ))}
+      </section>
     </div>
   )
 }

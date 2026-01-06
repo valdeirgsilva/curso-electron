@@ -37,12 +37,12 @@ export function Sidebar() {
         <nav className="flex mx-2 flex-col gap-8 text-slate-100">
           <div className="flex flex-col gap-2">
             <div className="text-white font-semibold uppercase mb-2 ml-2">Menu</div>
-            <section className="flex flex-col gap-px">
-              <LinkContent to="/">Clientes</LinkContent>
-              <LinkContent to="/create">Cadastrar cliente</LinkContent>
-              <LinkContent to="/about">Sobre</LinkContent>
-            </section>
           </div>
+          <section className="flex flex-col gap-px">
+            <LinkContent to="/">Clientes</LinkContent>
+            <LinkContent to="/create">Cadastrar cliente</LinkContent>
+            <LinkContent to="/about">Sobre</LinkContent>
+          </section>
         </nav>
       </div>
     </Collapsible.Content>
