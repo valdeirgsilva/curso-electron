@@ -5,7 +5,7 @@ export interface Customer {
   email: string
   role: string
   status: boolean
-  addres?: string
+  address?: string
   phone?: string
 }
 

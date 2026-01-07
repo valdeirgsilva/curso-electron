@@ -27,7 +27,8 @@ export function Create() {
           email: data.email,
           role: data.role,
           status: true,
-          phone: data.phone
+          phone: data.phone,
+          address: data.address
         })
         .then(() => {
           console.log('DEU CERTO E CADASTROU')
