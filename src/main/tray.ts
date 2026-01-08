@@ -14,7 +14,7 @@ export function createTray(window: BrowserWindow) {
       label: 'Cadastrar cliente',
       click: () => {
         // Enviar mensagem do processo (main) para o frontend (renderer)
-        window.webContents.send('new-costumer')
+        window.webContents.send('new-customer')
 
         if (window.isMinimized()) window.restore()
         window.focus()

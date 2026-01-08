@@ -12,10 +12,10 @@ declare global {
 // Custom APIs for renderer
 const api = {
   onNewCustomer: (callback: () => void) => {
-    ipcRenderer.on('new-costumer', callback)
+    ipcRenderer.on('new-customer', callback)
 
     return () => {
-      ipcRenderer.off('new-costumer', callback)
+      ipcRenderer.off('new-customer', callback)
     }
   },
   fecthUsers: () => {
